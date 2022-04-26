@@ -22,6 +22,9 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic
   var interactor: CreateOrderBusinessLogic?
   var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
 
+    //MARK: - OUTLETS
+    @IBOutlet var textFields: [UITextField]!
+    
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)

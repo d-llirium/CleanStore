@@ -503,6 +503,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UG2-FW-qG5"/>
+                    <connections>
+                        <outletCollection property="textFields" destination="r7y-jH-4DX" collectionClass="NSMutableArray" id="qMl-n0-hjl"/>
+                        <outletCollection property="textFields" destination="3k7-PE-vLZ" collectionClass="NSMutableArray" id="jCD-VN-mKj"/>
+                        <outletCollection property="textFields" destination="ION-w9-e6x" collectionClass="NSMutableArray" id="K2W-FY-ViK"/>
+                        <outletCollection property="textFields" destination="P17-bX-4xM" collectionClass="NSMutableArray" id="ICc-di-VUx"/>
+                        <outletCollection property="textFields" destination="L04-yg-DPR" collectionClass="NSMutableArray" id="zHx-A0-Dsd"/>
+                        <outletCollection property="textFields" destination="8fp-yp-Nhg" collectionClass="NSMutableArray" id="Y5R-Au-Jxr"/>
+                        <outletCollection property="textFields" destination="xQ3-D2-B12" collectionClass="NSMutableArray" id="hxT-Au-dTA"/>
+                        <outletCollection property="textFields" destination="0Wd-FB-ZTs" collectionClass="NSMutableArray" id="g8e-Vg-1dM"/>
+                        <outletCollection property="textFields" destination="fVN-bL-017" collectionClass="NSMutableArray" id="0SI-G9-3e6"/>
+                        <outletCollection property="textFields" destination="aud-uo-4QQ" collectionClass="NSMutableArray" id="kAp-Gw-acv"/>
+                        <outletCollection property="textFields" destination="MGl-e0-RgL" collectionClass="NSMutableArray" id="DBV-ed-b3s"/>
+                        <outletCollection property="textFields" destination="e9r-JX-t2N" collectionClass="NSMutableArray" id="fq2-gI-iaI"/>
+                        <outletCollection property="textFields" destination="T5h-6E-bBt" collectionClass="NSMutableArray" id="oiw-o7-NM1"/>
+                        <outletCollection property="textFields" destination="9Vy-oF-yTU" collectionClass="NSMutableArray" id="n5c-Va-Rfk"/>
+                        <outletCollection property="textFields" destination="JXF-d4-bFK" collectionClass="NSMutableArray" id="J5l-EO-h1J"/>
+                        <outletCollection property="textFields" destination="dSg-gu-hqS" collectionClass="NSMutableArray" id="9V1-wo-VaK"/>
+                        <outletCollection property="textFields" destination="Mf4-If-FNT" collectionClass="NSMutableArray" id="aBB-ux-le4"/>
+                        <outletCollection property="textFields" destination="SNZ-rq-kZB" collectionClass="NSMutableArray" id="Rcr-vM-z3C"/>
+                        <outletCollection property="textFields" destination="MEx-gK-Jlz" collectionClass="NSMutableArray" id="xVc-g4-N0Z"/>
+                        <outletCollection property="textFields" destination="9Rf-wv-LH6" collectionClass="NSMutableArray" id="O3j-3C-e7R"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egd-fk-uLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
