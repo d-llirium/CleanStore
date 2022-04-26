@@ -16,6 +16,24 @@
 		CE9A33C12818686C00257F74 /* CleanStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33C02818686C00257F74 /* CleanStoreTests.swift */; };
 		CE9A33CB2818686C00257F74 /* CleanStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33CA2818686C00257F74 /* CleanStoreUITests.swift */; };
 		CE9A33CD2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33CC2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift */; };
+		CE9A33E128186ECB00257F74 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DB28186ECB00257F74 /* CreateOrderPresenter.swift */; };
+		CE9A33E228186ECB00257F74 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DB28186ECB00257F74 /* CreateOrderPresenter.swift */; };
+		CE9A33E328186ECB00257F74 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DB28186ECB00257F74 /* CreateOrderPresenter.swift */; };
+		CE9A33E428186ECB00257F74 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DC28186ECB00257F74 /* CreateOrderWorker.swift */; };
+		CE9A33E528186ECB00257F74 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DC28186ECB00257F74 /* CreateOrderWorker.swift */; };
+		CE9A33E628186ECB00257F74 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DC28186ECB00257F74 /* CreateOrderWorker.swift */; };
+		CE9A33E728186ECB00257F74 /* CreateOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DD28186ECB00257F74 /* CreateOrderRouter.swift */; };
+		CE9A33E828186ECB00257F74 /* CreateOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DD28186ECB00257F74 /* CreateOrderRouter.swift */; };
+		CE9A33E928186ECB00257F74 /* CreateOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DD28186ECB00257F74 /* CreateOrderRouter.swift */; };
+		CE9A33EA28186ECB00257F74 /* CreateOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DE28186ECB00257F74 /* CreateOrderModels.swift */; };
+		CE9A33EB28186ECB00257F74 /* CreateOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DE28186ECB00257F74 /* CreateOrderModels.swift */; };
+		CE9A33EC28186ECB00257F74 /* CreateOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DE28186ECB00257F74 /* CreateOrderModels.swift */; };
+		CE9A33ED28186ECB00257F74 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DF28186ECB00257F74 /* CreateOrderViewController.swift */; };
+		CE9A33EE28186ECB00257F74 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DF28186ECB00257F74 /* CreateOrderViewController.swift */; };
+		CE9A33EF28186ECB00257F74 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33DF28186ECB00257F74 /* CreateOrderViewController.swift */; };
+		CE9A33F028186ECB00257F74 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33E028186ECB00257F74 /* CreateOrderInteractor.swift */; };
+		CE9A33F128186ECB00257F74 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33E028186ECB00257F74 /* CreateOrderInteractor.swift */; };
+		CE9A33F228186ECB00257F74 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33E028186ECB00257F74 /* CreateOrderInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +67,12 @@
 		CE9A33C62818686C00257F74 /* CleanStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9A33CA2818686C00257F74 /* CleanStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanStoreUITests.swift; sourceTree = "<group>"; };
 		CE9A33CC2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE9A33DB28186ECB00257F74 /* CreateOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderPresenter.swift; sourceTree = "<group>"; };
+		CE9A33DC28186ECB00257F74 /* CreateOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderWorker.swift; sourceTree = "<group>"; };
+		CE9A33DD28186ECB00257F74 /* CreateOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderRouter.swift; sourceTree = "<group>"; };
+		CE9A33DE28186ECB00257F74 /* CreateOrderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderModels.swift; sourceTree = "<group>"; };
+		CE9A33DF28186ECB00257F74 /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
+		CE9A33E028186ECB00257F74 /* CreateOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +123,7 @@
 		CE9A33A82818686A00257F74 /* CleanStore */ = {
 			isa = PBXGroup;
 			children = (
+				CE9A33D928186DBF00257F74 /* Scenes */,
 				CE9A33A92818686A00257F74 /* AppDelegate.swift */,
 				CE9A33AB2818686A00257F74 /* SceneDelegate.swift */,
 				CE9A33AD2818686A00257F74 /* ViewController.swift */,
@@ -125,6 +150,27 @@
 				CE9A33CC2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift */,
 			);
 			path = CleanStoreUITests;
+			sourceTree = "<group>";
+		};
+		CE9A33D928186DBF00257F74 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A33DA28186DEB00257F74 /* CreateOrder */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CE9A33DA28186DEB00257F74 /* CreateOrder */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A33DB28186ECB00257F74 /* CreateOrderPresenter.swift */,
+				CE9A33DC28186ECB00257F74 /* CreateOrderWorker.swift */,
+				CE9A33DD28186ECB00257F74 /* CreateOrderRouter.swift */,
+				CE9A33DE28186ECB00257F74 /* CreateOrderModels.swift */,
+				CE9A33DF28186ECB00257F74 /* CreateOrderViewController.swift */,
+				CE9A33E028186ECB00257F74 /* CreateOrderInteractor.swift */,
+			);
+			path = CreateOrder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9A33AE2818686A00257F74 /* ViewController.swift in Sources */,
+				CE9A33ED28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
+				CE9A33E128186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
+				CE9A33E428186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
+				CE9A33EA28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
+				CE9A33F028186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
 				CE9A33AA2818686A00257F74 /* AppDelegate.swift in Sources */,
 				CE9A33AC2818686A00257F74 /* SceneDelegate.swift in Sources */,
+				CE9A33E728186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9A33C12818686C00257F74 /* CleanStoreTests.swift in Sources */,
+				CE9A33EE28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
+				CE9A33E528186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
+				CE9A33EB28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
+				CE9A33E228186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
+				CE9A33E828186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
+				CE9A33F128186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +334,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9A33EC28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
+				CE9A33F228186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
+				CE9A33E628186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
+				CE9A33EF28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
 				CE9A33CD2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift in Sources */,
+				CE9A33E928186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
 				CE9A33CB2818686C00257F74 /* CleanStoreUITests.swift in Sources */,
+				CE9A33E328186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +509,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,7 +521,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,6 +538,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +550,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
