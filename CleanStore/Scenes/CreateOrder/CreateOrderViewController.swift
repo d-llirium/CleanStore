@@ -18,11 +18,18 @@ protocol CreateOrderDisplayLogic: AnyObject
         viewModel: CreateOrder.Something.ViewModel
     )
 }
+protocol CreateOrderViewControllerOutput
+{
+    var shippingMethods: [String] { get }
+    func formatExpirationDate(
+        request: CreateOrder_FormatExpirationDate_Request
+    )
+}
 
 class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
-    
+    var output: CreateOrderViewControllerOutput!
     var interactor: CreateOrderBusinessLogic?
     var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
     
@@ -71,12 +78,11 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
+        router.dataStore = interactor as CreateOrderDataStore
     }
     
     
     // MARK: Routing
-    
     override func prepare(
         for segue: UIStoryboardSegue,
         sender: Any?
@@ -95,32 +101,47 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
-    }
-    // MARK: - IBActions
-    @IBAction func expirationDatePickerValueChanged(
-        _ sender: Any
-    ) {
+        configurePickers()
         
+//        doSomething()
     }
     
-    // MARK: - UIPickerViewDelegate
+//MARK: - PICKERS
+    func configurePickers(){ // When the user taps the shippingMethodTextField, the correct picker UI will be shown instead of the standard keyboard.
+        shippingMethodTextField.inputView = shippingMethodPicker
+        expirationDateTextField.inputView = expirationDatePicker
+    }
+    // MARK: - UIPickerViewDelegate && UIPickerViewDataSource
     func numberOfComponents(
         in pickerView: UIPickerView
     ) -> Int {
         return 1
     }
-    
     func pickerView(
         _ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int
     ) -> Int {
-        return 2
+        return output.shippingMethods.count
     }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        titleForRow row: Int,
+        forComponent component: Int
+    ) -> String? {
+        return output.shippingMethods[ row ]
+    }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        didSelectRow row: Int,
+        inComponent component: Int
+    ) {
+        shippingMethodTextField.text = output.shippingMethods[ row ]
+    }
+    
+
     //MARK: - UITextFieldDelegate
     func textFieldShouldReturn( // ao pressionar o botão NEXT no Keyboard já vai direto para o próximo textField
         _ textField: UITextField
@@ -156,7 +177,13 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     }
     
     // MARK: Do something
-    
+    @IBAction func expirationDatePickerValueChanged(
+        _ sender: Any
+    ) {
+        let date = expirationDatePicker.date
+        let request = CreateOrder_FormatExpirationDate_Request( date: date as NSDate )
+        output.formatExpirationDate( request: request )
+    }
     func doSomething()
     {
         let request = CreateOrder.Something.Request()

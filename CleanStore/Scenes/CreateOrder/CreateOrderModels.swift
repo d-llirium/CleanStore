@@ -29,3 +29,12 @@ enum CreateOrder
     }
   }
 }
+
+struct CreateOrder_FormatExpirationDate_Request
+{
+  var date: NSDate
+}
+struct CreateOrder_FormatExpirationDate_Response
+{
+  var date: NSDate
+}

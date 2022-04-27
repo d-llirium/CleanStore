@@ -12,30 +12,55 @@
 
 import UIKit
 
+protocol CreateOrderInteractorInput // the same info as CreateOrderViewControllerOutput
+{
+    var shippingMethods: [String] { get }
+    func formatExpirationDate(
+        request: CreateOrder_FormatExpirationDate_Request
+    )
+}
+protocol CreateOrderInteractorOutput
+{
+    func presentExpirationDate(response: CreateOrder_FormatExpirationDate_Response)
+}
 protocol CreateOrderBusinessLogic
 {
-  func doSomething(request: CreateOrder.Something.Request)
+    func doSomething(request: CreateOrder.Something.Request)
 }
 
 protocol CreateOrderDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
-class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore
+class CreateOrderInteractor: CreateOrderInteractorInput,
+                             CreateOrderBusinessLogic,
+                             CreateOrderDataStore
 {
-  var presenter: CreateOrderPresentationLogic?
-  var worker: CreateOrderWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: CreateOrder.Something.Request)
-  {
-    worker = CreateOrderWorker()
-    worker?.doSomeWork()
+    //    var output: CreateOrderInteractorOutput!
+    var shippingMethods = [
+        "Standard Shipping",
+        "Two-Day Shipping ",
+        "One-Day Shipping "
+    ]
+    var presenter: CreateOrderPresentationLogic?
+    var worker: CreateOrderWorker!
+    var output: CreateOrderInteractorOutput!
+    //var name: String = ""
     
-    let response = CreateOrder.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    // MARK: Expiration date
+    func formatExpirationDate(request: CreateOrder_FormatExpirationDate_Request)
+    {
+        let response = CreateOrder_FormatExpirationDate_Response(date: request.date)
+        output.presentExpirationDate(response: response)
+    }
+    func doSomething(request: CreateOrder.Something.Request)
+    {
+        worker = CreateOrderWorker()
+        worker?.doSomeWork()
+        
+        let response = CreateOrder.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }
