@@ -122,7 +122,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         return 2
     }
     //MARK: - UITextFieldDelegate
-    func textFieldShouldReturn(
+    func textFieldShouldReturn( // ao pressionar o botão NEXT no Keyboard já vai direto para o próximo textField
         _ textField: UITextField
     ) -> Bool {
         textField.resignFirstResponder()
@@ -138,7 +138,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     }
     
     //MARK: - TableView
-    override func tableView(
+    override func tableView( // quando selecionar a cell, mesmo fora do textField, já vai para a edição do textField
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
