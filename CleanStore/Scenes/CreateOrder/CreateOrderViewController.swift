@@ -14,79 +14,139 @@ import UIKit
 
 protocol CreateOrderDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: CreateOrder.Something.ViewModel)
+    func displaySomething(
+        viewModel: CreateOrder.Something.ViewModel
+    )
 }
 
-class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic
+class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
-  var interactor: CreateOrderBusinessLogic?
-  var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
-
+    
+    
+    var interactor: CreateOrderBusinessLogic?
+    var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
+    
     //MARK: - OUTLETS
     @IBOutlet var textFields: [UITextField]!
     
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = CreateOrderInteractor()
-    let presenter = CreateOrderPresenter()
-    let router = CreateOrderRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    @IBOutlet weak var shippingMethodTextField: UITextField!
+    @IBOutlet var shippingMethodPicker: UIPickerView!
+    
+    @IBOutlet weak var expirationDateTextField: UITextField!
+    @IBOutlet var expirationDatePicker: UIDatePicker!
+    
+    
+    // MARK: Object lifecycle
+    
+    override init(
+        nibName nibNameOrNil: String?,
+        bundle nibBundleOrNil: Bundle?
+    ) {
+        super.init(
+            nibName: nibNameOrNil,
+            bundle: nibBundleOrNil
+        )
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = CreateOrder.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: CreateOrder.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(
+        coder aDecoder: NSCoder
+    ) {
+        super.init(
+            coder: aDecoder
+        )
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = CreateOrderInteractor()
+        let presenter = CreateOrderPresenter()
+        let router = CreateOrderRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    
+    // MARK: Routing
+    
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(
+                to: selector
+            ) {
+                router.perform(
+                    selector,
+                    with: segue
+                )
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        doSomething()
+    }
+    // MARK: - IBActions
+    @IBAction func expirationDatePickerValueChanged(
+        _ sender: Any
+    ) {
+        
+    }
+    
+    // MARK: - UIPickerViewDelegate
+    func numberOfComponents(
+        in pickerView: UIPickerView
+    ) -> Int {
+        return 1
+    }
+    
+    func pickerView(
+        _ pickerView: UIPickerView,
+        numberOfRowsInComponent component: Int
+    ) -> Int {
+        return 2
+    }
+    //MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(
+        _ textField: UITextField
+    ) -> Bool {
+        textField.resignFirstResponder()
+        if let index = textFields.firstIndex(
+            of: textField
+        ) {
+            if index < textFields.count - 1 {
+                let nextTextField = textFields[ index + 1 ]
+                nextTextField.becomeFirstResponder()
+            }
+        }
+        return true
+    }
+    // MARK: Do something
+    
+    func doSomething()
+    {
+        let request = CreateOrder.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+    
+    func displaySomething(
+        viewModel: CreateOrder.Something.ViewModel
+    ) {
+        //nameTextField.text = viewModel.name
+    }
 }
