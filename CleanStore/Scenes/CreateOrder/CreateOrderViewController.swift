@@ -18,15 +18,26 @@ protocol CreateOrderDisplayLogic: AnyObject
         viewModel: CreateOrder.Something.ViewModel
     )
 }
+protocol CreateOrderViewControllerInput
+{
+  func displayExpirationDate(
+    viewModel: CreateOrder.FormatExpirationDate.ViewModel
+  )
+}
 protocol CreateOrderViewControllerOutput
 {
     var shippingMethods: [String] { get }
     func formatExpirationDate(
-        request: CreateOrder_FormatExpirationDate_Request
+        request: CreateOrder.FormatExpirationDate.Request
     )
 }
 
-class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+class CreateOrderViewController: UITableViewController,
+                                 CreateOrderViewControllerInput,
+                                 UITextFieldDelegate,
+                                 UIPickerViewDelegate,
+                                 UIPickerViewDataSource,
+                                 CreateOrderDisplayLogic
 {
     
     var output: CreateOrderViewControllerOutput!
@@ -73,10 +84,14 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         let interactor = CreateOrderInteractor()
         let presenter = CreateOrderPresenter()
         let router = CreateOrderRouter()
+        
         viewController.interactor = interactor
         viewController.router = router
+        
         interactor.presenter = presenter
+        
         presenter.viewController = viewController
+        
         router.viewController = viewController
         router.dataStore = interactor as CreateOrderDataStore
     }
@@ -140,8 +155,15 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     ) {
         shippingMethodTextField.text = output.shippingMethods[ row ]
     }
+    //MARK: - Expiration Date
+    //MARK: - CreateOrderViewControllerInput
+    func displayExpirationDate(
+        viewModel: CreateOrder.FormatExpirationDate.ViewModel
+    ) {
+        let date = viewModel.date
+        expirationDateTextField.text = date
+      }
     
-
     //MARK: - UITextFieldDelegate
     func textFieldShouldReturn( // ao pressionar o botão NEXT no Keyboard já vai direto para o próximo textField
         _ textField: UITextField
@@ -181,8 +203,12 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         _ sender: Any
     ) {
         let date = expirationDatePicker.date
-        let request = CreateOrder_FormatExpirationDate_Request( date: date as NSDate )
-        output.formatExpirationDate( request: request )
+        let request = CreateOrder.FormatExpirationDate.Request(
+            date: date
+        )
+        output.formatExpirationDate(
+            request: request
+        )
     }
     func doSomething()
     {

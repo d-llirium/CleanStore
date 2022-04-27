@@ -12,20 +12,54 @@
 
 import UIKit
 
+protocol CreateOrderPresenterInput
+{
+    func presentExpirationDate(
+        response: CreateOrder_FormatExpirationDate_Response
+    )
+}
+protocol CreateOrderPresenterOutput: AnyObject
+{
+    func displayExpirationDate(
+        viewModel: CreateOrder_FormatExpirationDate_ViewModel
+    )
+}
 protocol CreateOrderPresentationLogic
 {
-  func presentSomething(response: CreateOrder.Something.Response)
+    func presentSomething(response: CreateOrder.Something.Response)
 }
 
-class CreateOrderPresenter: CreateOrderPresentationLogic
+class CreateOrderPresenter: CreateOrderPresenterInput,
+                            CreateOrderPresentationLogic
 {
-  weak var viewController: CreateOrderDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: CreateOrder.Something.Response)
-  {
-    let viewModel = CreateOrder.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: CreateOrderDisplayLogic?
+    weak var output: CreateOrderPresenterOutput!
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        
+        return dateFormatter
+    }()
+    
+    // MARK: Do something
+    //MARK: Expiration Date
+    func presentExpirationDate(response: CreateOrder_FormatExpirationDate_Response)
+    {
+        let date = dateFormatter.string(
+            from: response.date as Date
+        )
+        let viewModel = CreateOrder_FormatExpirationDate_ViewModel(
+            date: date
+        )
+        output.displayExpirationDate(
+            viewModel: viewModel
+        )
+    }
+    func presentSomething(response: CreateOrder.Something.Response)
+    {
+        let viewModel = CreateOrder.Something.ViewModel()
+        viewController?.displaySomething(viewModel: viewModel)
+    }
 }

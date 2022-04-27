@@ -12,20 +12,24 @@
 
 import UIKit
 
-protocol CreateOrderInteractorInput // the same info as CreateOrderViewControllerOutput
+protocol CreateOrderInteractorInput
 {
     var shippingMethods: [String] { get }
     func formatExpirationDate(
-        request: CreateOrder_FormatExpirationDate_Request
+        request: CreateOrder.FormatExpirationDate.Request
     )
 }
 protocol CreateOrderInteractorOutput
 {
-    func presentExpirationDate(response: CreateOrder_FormatExpirationDate_Response)
+    func presentExpirationDate(
+        response: CreateOrder.FormatExpirationDate.Response
+    )
 }
 protocol CreateOrderBusinessLogic
 {
-    func doSomething(request: CreateOrder.Something.Request)
+    func doSomething(
+        request: CreateOrder.Something.Request
+    )
 }
 
 protocol CreateOrderDataStore
@@ -37,7 +41,6 @@ class CreateOrderInteractor: CreateOrderInteractorInput,
                              CreateOrderBusinessLogic,
                              CreateOrderDataStore
 {
-    //    var output: CreateOrderInteractorOutput!
     var shippingMethods = [
         "Standard Shipping",
         "Two-Day Shipping ",
@@ -50,17 +53,25 @@ class CreateOrderInteractor: CreateOrderInteractorInput,
     
     // MARK: Do something
     // MARK: Expiration date
-    func formatExpirationDate(request: CreateOrder_FormatExpirationDate_Request)
-    {
-        let response = CreateOrder_FormatExpirationDate_Response(date: request.date)
-        output.presentExpirationDate(response: response)
+    func formatExpirationDate(
+        request: CreateOrder.FormatExpirationDate.Request
+    ) {
+        let response = CreateOrder.FormatExpirationDate.Response(
+            date: request.date
+        )
+        output.presentExpirationDate(
+            response: response
+        )
     }
-    func doSomething(request: CreateOrder.Something.Request)
-    {
+    func doSomething(
+        request: CreateOrder.Something.Request
+    ) {
         worker = CreateOrderWorker()
         worker?.doSomeWork()
-        
+
         let response = CreateOrder.Something.Response()
-        presenter?.presentSomething(response: response)
+        presenter?.presentSomething(
+            response: response
+        )
     }
 }
