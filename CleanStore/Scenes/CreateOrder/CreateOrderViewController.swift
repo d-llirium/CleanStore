@@ -136,6 +136,25 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         }
         return true
     }
+    
+    //MARK: - TableView
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        if let cell = tableView.cellForRow(
+            at: indexPath
+        ) {
+            for textField in textFields {
+                if textField.isDescendant(
+                    of: cell
+                ) {
+                    textField.becomeFirstResponder()
+                }
+            }
+        }
+    }
+    
     // MARK: Do something
     
     func doSomething()
