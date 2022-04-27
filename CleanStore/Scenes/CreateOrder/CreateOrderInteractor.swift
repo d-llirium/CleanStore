@@ -12,6 +12,16 @@
 
 import UIKit
 
+//protocol CreateOrderBusinessLogic
+//{
+//    func doSomething(
+//        request: CreateOrder.Something.Request
+//    )
+//}
+//protocol CreateOrderDataStore
+//{
+    //var name: String { get set }
+//}
 protocol CreateOrderInteractorInput
 {
     var shippingMethods: [String] { get }
@@ -19,40 +29,26 @@ protocol CreateOrderInteractorInput
         request: CreateOrder.FormatExpirationDate.Request
     )
 }
-protocol CreateOrderInteractorOutput
-{
-    func presentExpirationDate(
-        response: CreateOrder.FormatExpirationDate.Response
-    )
-}
-protocol CreateOrderBusinessLogic
-{
-    func doSomething(
-        request: CreateOrder.Something.Request
-    )
-}
+typealias CreateOrderInteractorOutput = CreateOrderPresenterInput
 
-protocol CreateOrderDataStore
+class CreateOrderInteractor: CreateOrderInteractorInput
+//                             , CreateOrderBusinessLogic
+//                             , CreateOrderDataStore
 {
-    //var name: String { get set }
-}
-
-class CreateOrderInteractor: CreateOrderInteractorInput,
-                             CreateOrderBusinessLogic,
-                             CreateOrderDataStore
-{
+//MARK: - ATRIBUTES
     var shippingMethods = [
         "Standard Shipping",
         "Two-Day Shipping ",
         "One-Day Shipping "
     ]
-    var presenter: CreateOrderPresentationLogic?
-    var worker: CreateOrderWorker!
+
     var output: CreateOrderInteractorOutput!
+//    var worker: CreateOrderWorker!
     //var name: String = ""
+    //    var presenter: CreateOrderPresentationLogic?
     
-    // MARK: Do something
-    // MARK: Expiration date
+//MARK: - DO SOMETHING
+    // MARK: expiration date
     func formatExpirationDate(
         request: CreateOrder.FormatExpirationDate.Request
     ) {
@@ -63,15 +59,15 @@ class CreateOrderInteractor: CreateOrderInteractorInput,
             response: response
         )
     }
-    func doSomething(
-        request: CreateOrder.Something.Request
-    ) {
-        worker = CreateOrderWorker()
-        worker?.doSomeWork()
-
-        let response = CreateOrder.Something.Response()
-        presenter?.presentSomething(
-            response: response
-        )
-    }
+//    func doSomething(
+//        request: CreateOrder.Something.Request
+//    ) {
+//        worker = CreateOrderWorker()
+//        worker?.doSomeWork()
+//
+//        let response = CreateOrder.Something.Response()
+//        presenter?.presentSomething(
+//            response: response
+//        )
+//    }
 }

@@ -12,29 +12,24 @@
 
 import UIKit
 
+//protocol CreateOrderPresentationLogic
+//{
+//    func presentSomething(response: CreateOrder.Something.Response)
+//}
 protocol CreateOrderPresenterInput
 {
     func presentExpirationDate(
-        response: CreateOrder_FormatExpirationDate_Response
+        response: CreateOrder.FormatExpirationDate.Response
     )
-}
-protocol CreateOrderPresenterOutput: AnyObject
-{
-    func displayExpirationDate(
-        viewModel: CreateOrder_FormatExpirationDate_ViewModel
-    )
-}
-protocol CreateOrderPresentationLogic
-{
-    func presentSomething(response: CreateOrder.Something.Response)
 }
 
-class CreateOrderPresenter: CreateOrderPresenterInput,
-                            CreateOrderPresentationLogic
+typealias CreateOrderPresenterOutput = CreateOrderViewControllerInput
+
+class CreateOrderPresenter: CreateOrderPresenterInput
+//                            , CreateOrderPresentationLogic
 {
-    weak var viewController: CreateOrderDisplayLogic?
+//MARK: - ATRIBUTES
     weak var output: CreateOrderPresenterOutput!
-    
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -42,24 +37,26 @@ class CreateOrderPresenter: CreateOrderPresenterInput,
         
         return dateFormatter
     }()
+    //    weak var viewController: CreateOrderDisplayLogic?
     
-    // MARK: Do something
-    //MARK: Expiration Date
-    func presentExpirationDate(response: CreateOrder_FormatExpirationDate_Response)
-    {
+//MARK: - DO SOMETHING
+    //MARK: expiration Date
+    func presentExpirationDate(
+        response: CreateOrder.FormatExpirationDate.Response
+    ) {
         let date = dateFormatter.string(
-            from: response.date as Date
+            from: response.date
         )
-        let viewModel = CreateOrder_FormatExpirationDate_ViewModel(
+        let viewModel = CreateOrder.FormatExpirationDate.ViewModel(
             date: date
         )
         output.displayExpirationDate(
             viewModel: viewModel
         )
     }
-    func presentSomething(response: CreateOrder.Something.Response)
-    {
-        let viewModel = CreateOrder.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
-    }
+//    func presentSomething(response: CreateOrder.Something.Response)
+//    {
+//        let viewModel = CreateOrder.Something.ViewModel()
+//        viewController?.displaySomething(viewModel: viewModel)
+//    }
 }

@@ -12,39 +12,36 @@
 
 import UIKit
 
-protocol CreateOrderDisplayLogic: AnyObject
+//protocol CreateOrderDisplayLogic: AnyObject
+//{
+//    func displaySomething(
+//        viewModel: CreateOrder.Something.ViewModel
+//    )
+//}
+protocol CreateOrderViewControllerInput: AnyObject
 {
-    func displaySomething(
-        viewModel: CreateOrder.Something.ViewModel
+    func displayExpirationDate(
+        viewModel: CreateOrder.FormatExpirationDate.ViewModel
     )
 }
-protocol CreateOrderViewControllerInput
-{
-  func displayExpirationDate(
-    viewModel: CreateOrder.FormatExpirationDate.ViewModel
-  )
-}
-protocol CreateOrderViewControllerOutput
-{
-    var shippingMethods: [String] { get }
-    func formatExpirationDate(
-        request: CreateOrder.FormatExpirationDate.Request
-    )
-}
+typealias CreateOrderViewControllerOutput = CreateOrderInteractorInput
 
-class CreateOrderViewController: UITableViewController,
-                                 CreateOrderViewControllerInput,
-                                 UITextFieldDelegate,
-                                 UIPickerViewDelegate,
-                                 UIPickerViewDataSource,
-                                 CreateOrderDisplayLogic
+class CreateOrderViewController: UITableViewController
+                                 , CreateOrderViewControllerInput
+                                 , UITextFieldDelegate
+                                 , UIPickerViewDelegate
+                                 , UIPickerViewDataSource
+//                                , CreateOrderDisplayLogic
 {
+//MARK: - ATRIBUTES
+    var output: CreateOrderViewControllerOutput! //    var interactor: CreateOrderBusinessLogic?
+    var router: (
+        NSObjectProtocol
+//        & CreateOrderRoutingLogic
+//        & CreateOrderDataPassing
+    )?
     
-    var output: CreateOrderViewControllerOutput!
-    var interactor: CreateOrderBusinessLogic?
-    var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
-    
-    //MARK: - OUTLETS
+    //MARK: outlets
     @IBOutlet var textFields: [UITextField]!
     
     @IBOutlet weak var shippingMethodTextField: UITextField!
@@ -53,9 +50,26 @@ class CreateOrderViewController: UITableViewController,
     @IBOutlet weak var expirationDateTextField: UITextField!
     @IBOutlet var expirationDatePicker: UIDatePicker!
     
-    
-    // MARK: Object lifecycle
-    
+//MARK: - SET UP
+    private func setup()
+    {
+        let viewController = self
+        let interactor = CreateOrderInteractor()
+        let presenter = CreateOrderPresenter()
+        let router = CreateOrderRouter()
+        
+        viewController.output = interactor
+        viewController.router = router
+        
+        interactor.output = presenter
+        
+        presenter.output = viewController
+        
+        router.viewController = viewController
+//        router.dataStore = interactor as CreateOrderDataStore
+    }
+// MARK: - LIFE CYCLE
+    //MARK: object
     override init(
         nibName nibNameOrNil: String?,
         bundle nibBundleOrNil: Bundle?
@@ -66,7 +80,6 @@ class CreateOrderViewController: UITableViewController,
         )
         setup()
     }
-    
     required init?(
         coder aDecoder: NSCoder
     ) {
@@ -75,47 +88,7 @@ class CreateOrderViewController: UITableViewController,
         )
         setup()
     }
-    
-    // MARK: Setup
-    
-    private func setup()
-    {
-        let viewController = self
-        let interactor = CreateOrderInteractor()
-        let presenter = CreateOrderPresenter()
-        let router = CreateOrderRouter()
-        
-        viewController.interactor = interactor
-        viewController.router = router
-        
-        interactor.presenter = presenter
-        
-        presenter.viewController = viewController
-        
-        router.viewController = viewController
-        router.dataStore = interactor as CreateOrderDataStore
-    }
-    
-    
-    // MARK: Routing
-    override func prepare(
-        for segue: UIStoryboardSegue,
-        sender: Any?
-    ) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(
-                to: selector
-            ) {
-                router.perform(
-                    selector,
-                    with: segue
-                )
-            }
-        }
-    }
-    
-    // MARK: View lifecycle
+    //MARK: view
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -124,63 +97,7 @@ class CreateOrderViewController: UITableViewController,
 //        doSomething()
     }
     
-//MARK: - PICKERS
-    func configurePickers(){ // When the user taps the shippingMethodTextField, the correct picker UI will be shown instead of the standard keyboard.
-        shippingMethodTextField.inputView = shippingMethodPicker
-        expirationDateTextField.inputView = expirationDatePicker
-    }
-    // MARK: - UIPickerViewDelegate && UIPickerViewDataSource
-    func numberOfComponents(
-        in pickerView: UIPickerView
-    ) -> Int {
-        return 1
-    }
-    func pickerView(
-        _ pickerView: UIPickerView,
-        numberOfRowsInComponent component: Int
-    ) -> Int {
-        return output.shippingMethods.count
-    }
-    func pickerView(
-        _ pickerView: UIPickerView,
-        titleForRow row: Int,
-        forComponent component: Int
-    ) -> String? {
-        return output.shippingMethods[ row ]
-    }
-    func pickerView(
-        _ pickerView: UIPickerView,
-        didSelectRow row: Int,
-        inComponent component: Int
-    ) {
-        shippingMethodTextField.text = output.shippingMethods[ row ]
-    }
-    //MARK: - Expiration Date
-    //MARK: - CreateOrderViewControllerInput
-    func displayExpirationDate(
-        viewModel: CreateOrder.FormatExpirationDate.ViewModel
-    ) {
-        let date = viewModel.date
-        expirationDateTextField.text = date
-      }
-    
-    //MARK: - UITextFieldDelegate
-    func textFieldShouldReturn( // ao pressionar o botão NEXT no Keyboard já vai direto para o próximo textField
-        _ textField: UITextField
-    ) -> Bool {
-        textField.resignFirstResponder()
-        if let index = textFields.firstIndex(
-            of: textField
-        ) {
-            if index < textFields.count - 1 {
-                let nextTextField = textFields[ index + 1 ]
-                nextTextField.becomeFirstResponder()
-            }
-        }
-        return true
-    }
-    
-    //MARK: - TableView
+//MARK: - TABLE VIEW
     override func tableView( // quando selecionar a cell, mesmo fora do textField, já vai para a edição do textField
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
@@ -197,8 +114,66 @@ class CreateOrderViewController: UITableViewController,
             }
         }
     }
+
+//MARK: - TEXT FIELDS
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn( // ao pressionar o botão NEXT no Keyboard já vai direto para o próximo textField
+        _ textField: UITextField
+    ) -> Bool {
+        textField.resignFirstResponder()
+        if let index = textFields.firstIndex(
+            of: textField
+        ) {
+            if index < textFields.count - 1 {
+                let nextTextField = textFields[ index + 1 ]
+                nextTextField.becomeFirstResponder()
+            }
+        }
+        return true
+    }
     
-    // MARK: Do something
+//MARK: - PICKERS
+    func configurePickers(){ // When the user taps the shippingMethodTextField, the correct picker UI will be shown instead of the standard keyboard.
+        shippingMethodTextField.inputView = shippingMethodPicker
+        expirationDateTextField.inputView = expirationDatePicker
+    }
+    // MARK: UIPickerViewDelegate
+    func pickerView(
+        _ pickerView: UIPickerView,
+        titleForRow row: Int,
+        forComponent component: Int
+    ) -> String? {
+        return output.shippingMethods[ row ]
+    }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        didSelectRow row: Int,
+        inComponent component: Int
+    ) {
+        shippingMethodTextField.text = output.shippingMethods[ row ]
+    }
+    //MARK: UIPickerViewDataSource
+    func numberOfComponents(
+        in pickerView: UIPickerView
+    ) -> Int {
+        return 1
+    }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        numberOfRowsInComponent component: Int
+    ) -> Int {
+        return output.shippingMethods.count
+    }
+    
+    //MARK: expiration date
+        //MARK: CreateOrderViewControllerInput
+    func displayExpirationDate(
+        viewModel: CreateOrder.FormatExpirationDate.ViewModel
+    ) {
+        let date = viewModel.date
+        expirationDateTextField.text = date
+      }
+        // MARK: Do something
     @IBAction func expirationDatePickerValueChanged(
         _ sender: Any
     ) {
@@ -210,15 +185,33 @@ class CreateOrderViewController: UITableViewController,
             request: request
         )
     }
-    func doSomething()
-    {
-        let request = CreateOrder.Something.Request()
-        interactor?.doSomething(request: request)
-    }
+//    func doSomething()
+//    {
+//        let request = CreateOrder.Something.Request()
+//        interactor?.doSomething(request: request)
+//    }
     
-    func displaySomething(
-        viewModel: CreateOrder.Something.ViewModel
-    ) {
+//    func displaySomething(
+//        viewModel: CreateOrder.Something.ViewModel
+//    ) {
         //nameTextField.text = viewModel.name
-    }
+//    }
+// MARK: ROUTING
+//    override func prepare(
+//        for segue: UIStoryboardSegue,
+//        sender: Any?
+//    ) {
+//        if let scene = segue.identifier {
+//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+//            if let router = router, router.responds(
+//                to: selector
+//            ) {
+//                router.perform(
+//                    selector,
+//                    with: segue
+//                )
+//            }
+//        }
+//    }
 }
+
