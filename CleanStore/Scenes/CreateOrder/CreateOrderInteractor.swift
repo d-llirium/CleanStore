@@ -12,28 +12,19 @@
 
 import UIKit
 
-//protocol CreateOrderBusinessLogic
-//{
-//    func doSomething(
-//        request: CreateOrder.Something.Request
-//    )
-//}
 //protocol CreateOrderDataStore
 //{
     //var name: String { get set }
 //}
-protocol CreateOrderInteractorInput
+protocol CreateOrderBusinessLogic //same as the viewController OUTPUT
 {
     var shippingMethods: [String] { get }
     func formatExpirationDate(
         request: CreateOrder.FormatExpirationDate.Request
     )
 }
-typealias CreateOrderInteractorOutput = CreateOrderPresenterInput
 
-class CreateOrderInteractor: CreateOrderInteractorInput
-//                             , CreateOrderBusinessLogic
-//                             , CreateOrderDataStore
+class CreateOrderInteractor: CreateOrderBusinessLogic//                             , CreateOrderDataStore
 {
 //MARK: - ATRIBUTES
     var shippingMethods = [
@@ -42,10 +33,9 @@ class CreateOrderInteractor: CreateOrderInteractorInput
         "One-Day Shipping "
     ]
 
-    var output: CreateOrderInteractorOutput!
+    var presenter: CreateOrderPresentationLogic! // OUTPUT that goes to presenter
 //    var worker: CreateOrderWorker!
     //var name: String = ""
-    //    var presenter: CreateOrderPresentationLogic?
     
 //MARK: - DO SOMETHING
     // MARK: expiration date
@@ -55,7 +45,7 @@ class CreateOrderInteractor: CreateOrderInteractorInput
         let response = CreateOrder.FormatExpirationDate.Response(
             date: request.date
         )
-        output.presentExpirationDate(
+        presenter.presentExpirationDate(
             response: response
         )
     }

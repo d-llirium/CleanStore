@@ -12,24 +12,17 @@
 
 import UIKit
 
-//protocol CreateOrderPresentationLogic
-//{
-//    func presentSomething(response: CreateOrder.Something.Response)
-//}
-protocol CreateOrderPresenterInput
+protocol CreateOrderPresentationLogic //same as the interactor OUTPUT
 {
     func presentExpirationDate(
         response: CreateOrder.FormatExpirationDate.Response
     )
 }
 
-typealias CreateOrderPresenterOutput = CreateOrderViewControllerInput
-
-class CreateOrderPresenter: CreateOrderPresenterInput
-//                            , CreateOrderPresentationLogic
+class CreateOrderPresenter: CreateOrderPresentationLogic
 {
 //MARK: - ATRIBUTES
-    weak var output: CreateOrderPresenterOutput!
+    weak var viewController: CreateOrderDisplayLogic! // OUTPUT that goes to View Controller
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -37,7 +30,6 @@ class CreateOrderPresenter: CreateOrderPresenterInput
         
         return dateFormatter
     }()
-    //    weak var viewController: CreateOrderDisplayLogic?
     
 //MARK: - DO SOMETHING
     //MARK: expiration Date
@@ -50,13 +42,8 @@ class CreateOrderPresenter: CreateOrderPresenterInput
         let viewModel = CreateOrder.FormatExpirationDate.ViewModel(
             date: date
         )
-        output.displayExpirationDate(
+        viewController.displayExpirationDate(
             viewModel: viewModel
         )
     }
-//    func presentSomething(response: CreateOrder.Something.Response)
-//    {
-//        let viewModel = CreateOrder.Something.ViewModel()
-//        viewController?.displaySomething(viewModel: viewModel)
-//    }
 }

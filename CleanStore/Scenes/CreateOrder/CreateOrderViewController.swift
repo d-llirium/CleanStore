@@ -12,29 +12,21 @@
 
 import UIKit
 
-//protocol CreateOrderDisplayLogic: AnyObject
-//{
-//    func displaySomething(
-//        viewModel: CreateOrder.Something.ViewModel
-//    )
-//}
-protocol CreateOrderViewControllerInput: AnyObject
+protocol CreateOrderDisplayLogic: AnyObject //same as the presenter OUTPUT
 {
     func displayExpirationDate(
         viewModel: CreateOrder.FormatExpirationDate.ViewModel
     )
 }
-typealias CreateOrderViewControllerOutput = CreateOrderInteractorInput
 
 class CreateOrderViewController: UITableViewController
-                                 , CreateOrderViewControllerInput
+                                 , CreateOrderDisplayLogic
                                  , UITextFieldDelegate
                                  , UIPickerViewDelegate
                                  , UIPickerViewDataSource
-//                                , CreateOrderDisplayLogic
 {
 //MARK: - ATRIBUTES
-    var output: CreateOrderViewControllerOutput! //    var interactor: CreateOrderBusinessLogic?
+    var interactor: CreateOrderBusinessLogic! // OUTPUT that goes to interactor
     var router: (
         NSObjectProtocol
 //        & CreateOrderRoutingLogic
@@ -50,7 +42,7 @@ class CreateOrderViewController: UITableViewController
     @IBOutlet weak var expirationDateTextField: UITextField!
     @IBOutlet var expirationDatePicker: UIDatePicker!
     
-//MARK: - SET UP
+//MARK: - CONFIGURATOR
     private func setup()
     {
         let viewController = self
@@ -58,12 +50,12 @@ class CreateOrderViewController: UITableViewController
         let presenter = CreateOrderPresenter()
         let router = CreateOrderRouter()
         
-        viewController.output = interactor
+        viewController.interactor = interactor
         viewController.router = router
         
-        interactor.output = presenter
+        interactor.presenter = presenter
         
-        presenter.output = viewController
+        presenter.viewController = viewController
         
         router.viewController = viewController
 //        router.dataStore = interactor as CreateOrderDataStore
@@ -143,14 +135,14 @@ class CreateOrderViewController: UITableViewController
         titleForRow row: Int,
         forComponent component: Int
     ) -> String? {
-        return output.shippingMethods[ row ]
+        return interactor.shippingMethods[ row ]
     }
     func pickerView(
         _ pickerView: UIPickerView,
         didSelectRow row: Int,
         inComponent component: Int
     ) {
-        shippingMethodTextField.text = output.shippingMethods[ row ]
+        shippingMethodTextField.text = interactor.shippingMethods[ row ]
     }
     //MARK: UIPickerViewDataSource
     func numberOfComponents(
@@ -162,7 +154,7 @@ class CreateOrderViewController: UITableViewController
         _ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int
     ) -> Int {
-        return output.shippingMethods.count
+        return interactor.shippingMethods.count
     }
     
     //MARK: expiration date
@@ -181,15 +173,10 @@ class CreateOrderViewController: UITableViewController
         let request = CreateOrder.FormatExpirationDate.Request(
             date: date
         )
-        output.formatExpirationDate(
+        interactor.formatExpirationDate(
             request: request
         )
     }
-//    func doSomething()
-//    {
-//        let request = CreateOrder.Something.Request()
-//        interactor?.doSomething(request: request)
-//    }
     
 //    func displaySomething(
 //        viewModel: CreateOrder.Something.ViewModel
@@ -202,9 +189,12 @@ class CreateOrderViewController: UITableViewController
 //        sender: Any?
 //    ) {
 //        if let scene = segue.identifier {
-//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+//            let selector = NSSelectorFromString("routeTo\(
+                //    scene
+            //    )WithSegue:"
+        //    )
 //            if let router = router, router.responds(
-//                to: selector
+//                to: selector // se no ROUTER tem um método com esse nome
 //            ) {
 //                router.perform(
 //                    selector,
