@@ -17,29 +17,17 @@ enum CreateOrder
   // MARK: Use cases
     enum FormatExpirationDate
     {
-      struct Request
+      struct Request // data
       {
         var date: Date
       }
-      struct Response
+      struct Response // information
       {
         var date: Date
       }
-      struct ViewModel
+      struct ViewModel // displayFormat for the info
       {
         var date: String
       }
     }
-//  enum Something
-//  {
-//    struct Request
-//    {
-//    }
-//    struct Response
-//    {
-//    }
-//    struct ViewModel
-//    {
-//    }
-//  }
 }

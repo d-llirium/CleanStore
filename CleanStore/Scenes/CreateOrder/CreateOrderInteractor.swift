@@ -52,11 +52,12 @@ class CreateOrderInteractor: CreateOrderBusinessLogic//                         
 //    func doSomething(
 //        request: CreateOrder.Something.Request
 //    ) {
-//        worker = CreateOrderWorker()
-//        worker?.doSomeWork()
+    // recebe o request
+//        worker = CreateOrderWorker() // usa a ver q recebe o request
+//        worker?.doSomeWork() // trabalha nele
 //
-//        let response = CreateOrder.Something.Response()
-//        presenter?.presentSomething(
+//        let response = CreateOrder.Something.Response() //crea essa response do que volta do worker
+//        presenter?.presentSomething( // envia a resposta p presenter
 //            response: response
 //        )
 //    }
