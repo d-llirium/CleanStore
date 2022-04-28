@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2F0029281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0023281AE8CF00B0FE3C /* ListOrdersPresenter.swift */; };
+		CE2F002A281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0023281AE8CF00B0FE3C /* ListOrdersPresenter.swift */; };
+		CE2F002B281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0023281AE8CF00B0FE3C /* ListOrdersPresenter.swift */; };
+		CE2F002C281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0024281AE8CF00B0FE3C /* ListOrdersWorker.swift */; };
+		CE2F002D281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0024281AE8CF00B0FE3C /* ListOrdersWorker.swift */; };
+		CE2F002E281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0024281AE8CF00B0FE3C /* ListOrdersWorker.swift */; };
+		CE2F002F281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0025281AE8CF00B0FE3C /* ListOrdersRouter.swift */; };
+		CE2F0030281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0025281AE8CF00B0FE3C /* ListOrdersRouter.swift */; };
+		CE2F0031281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0025281AE8CF00B0FE3C /* ListOrdersRouter.swift */; };
+		CE2F0032281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0026281AE8CF00B0FE3C /* ListOrdersModels.swift */; };
+		CE2F0033281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0026281AE8CF00B0FE3C /* ListOrdersModels.swift */; };
+		CE2F0034281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0026281AE8CF00B0FE3C /* ListOrdersModels.swift */; };
+		CE2F0035281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0027281AE8CF00B0FE3C /* ListOrdersViewController.swift */; };
+		CE2F0036281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0027281AE8CF00B0FE3C /* ListOrdersViewController.swift */; };
+		CE2F0037281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0027281AE8CF00B0FE3C /* ListOrdersViewController.swift */; };
+		CE2F0038281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0028281AE8CF00B0FE3C /* ListOrdersInteractor.swift */; };
+		CE2F0039281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0028281AE8CF00B0FE3C /* ListOrdersInteractor.swift */; };
+		CE2F003A281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0028281AE8CF00B0FE3C /* ListOrdersInteractor.swift */; };
+		CE2F0042281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003C281AE91100B0FE3C /* ShowOrderPresenter.swift */; };
+		CE2F0043281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003C281AE91100B0FE3C /* ShowOrderPresenter.swift */; };
+		CE2F0044281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003C281AE91100B0FE3C /* ShowOrderPresenter.swift */; };
+		CE2F0045281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003D281AE91100B0FE3C /* ShowOrderWorker.swift */; };
+		CE2F0046281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003D281AE91100B0FE3C /* ShowOrderWorker.swift */; };
+		CE2F0047281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003D281AE91100B0FE3C /* ShowOrderWorker.swift */; };
+		CE2F0048281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003E281AE91100B0FE3C /* ShowOrderRouter.swift */; };
+		CE2F0049281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003E281AE91100B0FE3C /* ShowOrderRouter.swift */; };
+		CE2F004A281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003E281AE91100B0FE3C /* ShowOrderRouter.swift */; };
+		CE2F004B281AE91100B0FE3C /* ShowOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003F281AE91100B0FE3C /* ShowOrderModels.swift */; };
+		CE2F004C281AE91100B0FE3C /* ShowOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003F281AE91100B0FE3C /* ShowOrderModels.swift */; };
+		CE2F004D281AE91100B0FE3C /* ShowOrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F003F281AE91100B0FE3C /* ShowOrderModels.swift */; };
+		CE2F004E281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0040281AE91100B0FE3C /* ShowOrderViewController.swift */; };
+		CE2F004F281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0040281AE91100B0FE3C /* ShowOrderViewController.swift */; };
+		CE2F0050281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0040281AE91100B0FE3C /* ShowOrderViewController.swift */; };
+		CE2F0051281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0041281AE91100B0FE3C /* ShowOrderInteractor.swift */; };
+		CE2F0052281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0041281AE91100B0FE3C /* ShowOrderInteractor.swift */; };
+		CE2F0053281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0041281AE91100B0FE3C /* ShowOrderInteractor.swift */; };
 		CE9A33AA2818686A00257F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33A92818686A00257F74 /* AppDelegate.swift */; };
 		CE9A33AC2818686A00257F74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33AB2818686A00257F74 /* SceneDelegate.swift */; };
 		CE9A33AE2818686A00257F74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A33AD2818686A00257F74 /* ViewController.swift */; };
@@ -54,6 +90,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2F0023281AE8CF00B0FE3C /* ListOrdersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersPresenter.swift; sourceTree = "<group>"; };
+		CE2F0024281AE8CF00B0FE3C /* ListOrdersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersWorker.swift; sourceTree = "<group>"; };
+		CE2F0025281AE8CF00B0FE3C /* ListOrdersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersRouter.swift; sourceTree = "<group>"; };
+		CE2F0026281AE8CF00B0FE3C /* ListOrdersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersModels.swift; sourceTree = "<group>"; };
+		CE2F0027281AE8CF00B0FE3C /* ListOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersViewController.swift; sourceTree = "<group>"; };
+		CE2F0028281AE8CF00B0FE3C /* ListOrdersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersInteractor.swift; sourceTree = "<group>"; };
+		CE2F003C281AE91100B0FE3C /* ShowOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderPresenter.swift; sourceTree = "<group>"; };
+		CE2F003D281AE91100B0FE3C /* ShowOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderWorker.swift; sourceTree = "<group>"; };
+		CE2F003E281AE91100B0FE3C /* ShowOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderRouter.swift; sourceTree = "<group>"; };
+		CE2F003F281AE91100B0FE3C /* ShowOrderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderModels.swift; sourceTree = "<group>"; };
+		CE2F0040281AE91100B0FE3C /* ShowOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderViewController.swift; sourceTree = "<group>"; };
+		CE2F0041281AE91100B0FE3C /* ShowOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderInteractor.swift; sourceTree = "<group>"; };
 		CE9A33A62818686A00257F74 /* CleanStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9A33A92818686A00257F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9A33AB2818686A00257F74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +148,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2F0022281AE8A500B0FE3C /* ListOrders */ = {
+			isa = PBXGroup;
+			children = (
+				CE2F0023281AE8CF00B0FE3C /* ListOrdersPresenter.swift */,
+				CE2F0024281AE8CF00B0FE3C /* ListOrdersWorker.swift */,
+				CE2F0025281AE8CF00B0FE3C /* ListOrdersRouter.swift */,
+				CE2F0026281AE8CF00B0FE3C /* ListOrdersModels.swift */,
+				CE2F0027281AE8CF00B0FE3C /* ListOrdersViewController.swift */,
+				CE2F0028281AE8CF00B0FE3C /* ListOrdersInteractor.swift */,
+			);
+			path = ListOrders;
+			sourceTree = "<group>";
+		};
+		CE2F003B281AE8E900B0FE3C /* ShowOrder */ = {
+			isa = PBXGroup;
+			children = (
+				CE2F003C281AE91100B0FE3C /* ShowOrderPresenter.swift */,
+				CE2F003D281AE91100B0FE3C /* ShowOrderWorker.swift */,
+				CE2F003E281AE91100B0FE3C /* ShowOrderRouter.swift */,
+				CE2F003F281AE91100B0FE3C /* ShowOrderModels.swift */,
+				CE2F0040281AE91100B0FE3C /* ShowOrderViewController.swift */,
+				CE2F0041281AE91100B0FE3C /* ShowOrderInteractor.swift */,
+			);
+			path = ShowOrder;
+			sourceTree = "<group>";
+		};
 		CE9A339D2818686A00257F74 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +229,8 @@
 		CE9A33D928186DBF00257F74 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CE2F003B281AE8E900B0FE3C /* ShowOrder */,
+				CE2F0022281AE8A500B0FE3C /* ListOrders */,
 				CE9A33DA28186DEB00257F74 /* CreateOrder */,
 			);
 			path = Scenes;
@@ -305,14 +381,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9A33AE2818686A00257F74 /* ViewController.swift in Sources */,
+				CE2F002C281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */,
+				CE2F0048281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */,
+				CE2F0038281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */,
+				CE2F004E281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */,
 				CE9A33ED28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
+				CE2F0032281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */,
 				CE9A33E128186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
 				CE9A33E428186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
+				CE2F002F281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */,
+				CE2F004B281AE91100B0FE3C /* ShowOrderModels.swift in Sources */,
+				CE2F0042281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */,
+				CE2F0051281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */,
 				CE9A33EA28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
 				CE9A33F028186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
 				CE9A33AA2818686A00257F74 /* AppDelegate.swift in Sources */,
 				CE9A33AC2818686A00257F74 /* SceneDelegate.swift in Sources */,
+				CE2F0035281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */,
 				CE9A33E728186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
+				CE2F0029281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */,
+				CE2F0045281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,13 +408,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2F0039281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */,
 				CE9A33C12818686C00257F74 /* CleanStoreTests.swift in Sources */,
 				CE9A33EE28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
+				CE2F0033281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */,
+				CE2F0036281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */,
 				CE9A33E528186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
+				CE2F0043281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */,
+				CE2F004C281AE91100B0FE3C /* ShowOrderModels.swift in Sources */,
 				CE9A33EB28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
 				CE9A33E228186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
+				CE2F002D281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */,
 				CE9A33E828186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
+				CE2F0030281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */,
+				CE2F0046281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */,
 				CE9A33F128186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
+				CE2F0049281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */,
+				CE2F0052281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */,
+				CE2F004F281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */,
+				CE2F002A281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,14 +434,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2F0053281AE91100B0FE3C /* ShowOrderInteractor.swift in Sources */,
+				CE2F0034281AE8CF00B0FE3C /* ListOrdersModels.swift in Sources */,
+				CE2F0037281AE8CF00B0FE3C /* ListOrdersViewController.swift in Sources */,
+				CE2F0031281AE8CF00B0FE3C /* ListOrdersRouter.swift in Sources */,
+				CE2F002E281AE8CF00B0FE3C /* ListOrdersWorker.swift in Sources */,
+				CE2F0044281AE91100B0FE3C /* ShowOrderPresenter.swift in Sources */,
 				CE9A33EC28186ECB00257F74 /* CreateOrderModels.swift in Sources */,
 				CE9A33F228186ECB00257F74 /* CreateOrderInteractor.swift in Sources */,
+				CE2F0047281AE91100B0FE3C /* ShowOrderWorker.swift in Sources */,
+				CE2F004A281AE91100B0FE3C /* ShowOrderRouter.swift in Sources */,
 				CE9A33E628186ECB00257F74 /* CreateOrderWorker.swift in Sources */,
 				CE9A33EF28186ECB00257F74 /* CreateOrderViewController.swift in Sources */,
+				CE2F004D281AE91100B0FE3C /* ShowOrderModels.swift in Sources */,
 				CE9A33CD2818686C00257F74 /* CleanStoreUITestsLaunchTests.swift in Sources */,
 				CE9A33E928186ECB00257F74 /* CreateOrderRouter.swift in Sources */,
+				CE2F002B281AE8CF00B0FE3C /* ListOrdersPresenter.swift in Sources */,
+				CE2F0050281AE91100B0FE3C /* ShowOrderViewController.swift in Sources */,
 				CE9A33CB2818686C00257F74 /* CleanStoreUITests.swift in Sources */,
 				CE9A33E328186ECB00257F74 /* CreateOrderPresenter.swift in Sources */,
+				CE2F003A281AE8CF00B0FE3C /* ListOrdersInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
